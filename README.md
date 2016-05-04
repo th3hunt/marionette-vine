@@ -23,3 +23,16 @@ If using React + Flux/Redux on the other hand, [context](https://facebook.github
 
 Finally, Backbone.Radio channels are great but won't provide scope transparently either. A channel per scope, would mean that all components should somehow find out the scope (or an identifier of it) they belong to in order to use it like `Radio.channel('scope identifier')`. So back to square one.
 
+
+### API (proposed)
+
+```javascript
+// Marionette.View
+
+scopeEvents: {
+  'foo': 'onFoo'
+}
+
+this.scope.trigger('foo');
+
+```
