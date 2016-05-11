@@ -66,6 +66,11 @@ function build() {
         libraryTarget: 'umd',
         library: config.mainVarName
       },
+      externals: [
+        'backbone',
+        'backbone.marionette',
+        'underscore'
+      ],
       module: {
         loaders: [
           { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader' }
