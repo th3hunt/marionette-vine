@@ -27,12 +27,13 @@ What about Backbone/Marionette? Well, in a Marionette app there is not native sc
 ### API (proposed)
 
 ```javascript
-// Marionette.View
 
+// inside a top level Marionette.View
 scopeEvents: {
   'foo': 'onFoo'
 }
 
+// inside a deep nesteed Marionette.View
 this.scope.trigger('foo');
 
 ```
