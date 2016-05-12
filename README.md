@@ -1,13 +1,13 @@
 # marionette-vine
 
-Hierarchy scoped events for Marionette
+View hierarchy scoped events for [Marionette](http://marionettejs.com/)
 
 [![Travis build status](http://img.shields.io/travis/th3hunt/marionette-vine.svg?style=flat)](https://travis-ci.org/th3hunt/marionette-vine)
 [![Dependency Status](https://david-dm.org/th3hunt/marionette-vine.svg)](https://david-dm.org/th3hunt/marionette-vine)
 [![devDependency Status](https://david-dm.org/th3hunt/marionette-vine/dev-status.svg)](https://david-dm.org/th3hunt/marionette-vine#info=devDependencies)
 
 
-## The Goal
+## About
 
 This project aims to provide Marionette 2+ applications with view hierarchy based event bubbling similar to that provided by `$scope#emit()` in Angular 1.x. It should answer the common need of letting a view notify all its parent views about something without being directly aware of its placement in the view tree and without polluting all possible intermediate views with event propagation code. 
 
@@ -24,7 +24,7 @@ If using React + Flux/Redux on the other hand, [context](https://facebook.github
 What about Backbone/Marionette? Well, in a Marionette app there is not native scope of any sort. Backbone.Radio channels are great but won't provide scope transparently. A channel per scope, would mean that all components should somehow find out the scope they belong to in order to use it like `Radio.channel('scope identifier')`. So back to square one. All other alternatives suffer from the same disease of boilerplate code and spreading of a single responsibility to many components.
 
 
-### How to use
+## Example
 
 ```javascript
 // Consider the following view hierarchy
