@@ -170,8 +170,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }
 	  return Component.extend({
 	    constructor: function constructor() {
-	      Component.apply(this, arguments);
 	      this.scope = new Scope(this);
+	      Component.apply(this, arguments);
 	    }
 	  });
 	};

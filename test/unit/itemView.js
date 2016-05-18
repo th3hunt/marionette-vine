@@ -7,6 +7,6 @@ export default Marionette.ItemView.extend({
     <p>
     item view
     </p>
-    `)
+  `)
 
 });

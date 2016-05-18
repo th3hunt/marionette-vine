@@ -72,8 +72,8 @@ Vine.extend = function extend(Component) {
   }
   return Component.extend({
     constructor() {
-      Component.apply(this, arguments);
       this.scope = new Scope(this);
+      Component.apply(this, arguments);
     }
   });
 };

@@ -64,4 +64,52 @@ describe('Vine', () => {
       });
     });
   });
+
+  describe('scopeEvents', () => {
+    const onBar = sinon.spy();
+    const CoolBehavior = Marionette.Behavior.extend({
+      scopeEvents: {
+        'baz': 'onBaz'
+      },
+      onBaz() {}
+    });
+    const ScopedView = Marionette.View.extend({
+      behaviors: {
+        CoolBehavior: {
+          behaviorClass: CoolBehavior
+        }
+      },
+      scopeEvents: {
+        foo: 'onFoo',
+        bar: onBar
+      },
+      onFoo() {}
+    });
+
+    it('provide declarative event binding on the view scope', () => {
+      const onFoo = sinon.spy(ScopedView.prototype, 'onFoo');
+      const onBaz = sinon.spy(CoolBehavior.prototype, 'onBaz');
+      const view = new ScopedView();
+
+      view.scope.trigger('foo');
+      expect(onFoo).to.have.been.calledOnce;
+      view.scope.trigger('bar');
+      expect(onBar).to.have.been.calledOnce;
+      view.scope.trigger('baz');
+      expect(onBaz).to.have.been.calledOnce;
+
+      onFoo.reset();
+      onBar.reset();
+      onBaz.reset();
+
+      view.destroy();
+
+      view.scope.trigger('foo');
+      expect(onFoo).to.not.have.been.called;
+      view.scope.trigger('bar');
+      expect(onBar).to.not.have.been.called;
+      view.scope.trigger('baz');
+      expect(onBaz).to.not.have.been.called;
+    });
+  });
 });
