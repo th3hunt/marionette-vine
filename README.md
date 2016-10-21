@@ -18,7 +18,7 @@ Why bring something over to Marionette when it's being abandoned elsewhere? Are 
 Angular had its reasons to get rid of scope `$scope`, as people did tend to use it for pretty much anything. From local state to global state and inter-component communication. However, I believe that `$emit` and `$broadcast` will be missed as no [alternative](http://stackoverflow.com/questions/34700438/global-events-in-angular-2) seems satisfying enough to me except maybe from directly using [zones](https://github.com/angular/zone.js/).
 
 
-If using React + Flux/Redux on the other hand, [context](https://facebook.github.io/react/docs/context.html) provides a scope mechanism, but the unidirectional event flow paradigm makes scoped events redundant.  
+If using React + Flux/Redux on the other hand, [context](https://facebook.github.io/react/docs/context.html) provides a scope mechanism but it's less needed by the unidirectional event flow paradigm employed.  
 
 
 What about Backbone/Marionette? Well, in a Marionette app there is not native scope of any sort. Backbone.Radio channels are great but won't provide scope transparently. A channel per scope, would mean that all components should somehow find out the scope they belong to in order to use it like `Radio.channel('scope identifier')`. So back to square one. All other alternatives suffer from the same disease of boilerplate code and spreading of a single responsibility to many components.
